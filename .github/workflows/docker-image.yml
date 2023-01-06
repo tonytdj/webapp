@@ -18,4 +18,4 @@ jobs:
    # - name: Build the Docker image
      # run: docker build . --file Dockerfile --tag tonytdj/webapp:${{github.run_number}}
     - name: Build and push
-      run : docker build -t tonytdj/webapp:${{github.run_number}} --pull=true --file=./Dockerfile ${{ github.workspace }} && docker tonytdj/webapp:${{github.run_number}}
+      run : docker build -t tonytdj/webapp:${{github.run_number}} --pull=true --file=./Dockerfile ${{ github.workspace }} && docker push tonytdj/webapp:${{github.run_number}}
