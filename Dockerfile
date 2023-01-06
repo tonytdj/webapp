@@ -6,4 +6,5 @@ EXPOSE 80
 RUN rm -rf /var/www/html/*
 RUN git clone https://github.com/diranetafen/static-website-example.git /var/www/html/
 RUN apt-get remove git -y
+RUN echo "salut toi"
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
