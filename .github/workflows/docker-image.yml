@@ -1,6 +1,7 @@
-name: Docker Image CI
-
+name: DockerImageCI
+  
 on:
+  workflow_dispatch:
   push:
     branches: [ "master" ]
   pull_request:
@@ -14,5 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag tonytdj/webapp
+   # - name: Build the Docker image
+     # run: docker build . --file Dockerfile --tag tonytdj/webapp:${{github.run_number}}
+    - name: Build and push
+      run : docker build -t tonytdj/webapp:${{github.run_number}} --pull=true --file=./Dockerfile ${{ github.workspace }} && docker tonytdj/webapp:${{github.run_number}}
